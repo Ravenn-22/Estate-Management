@@ -1,0 +1,138 @@
+.leases-page {
+  max-width: 800px;
+}
+
+.leases-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.leases-header h1 {
+  font-size: 26px;
+  margin: 0;
+}
+
+.leases-error {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  margin-bottom: var(--space-md);
+}
+
+.lease-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: var(--space-lg);
+  background: var(--color-surface);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.lease-form select,
+.lease-form input {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: var(--font-body);
+}
+
+.lease-form input:focus,
+.lease-form select:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.lease-form button {
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  font-family: var(--font-body);
+}
+
+.leases-empty {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.leases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lease-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lease-card-info h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.lease-card-info p {
+  margin: 2px 0;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+}
+
+.lease-dates {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.status-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 6px;
+}
+
+.status-active {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.status-ended {
+  background: var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.end-lease-btn {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-danger);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.end-lease-btn:hover {
+  background: var(--color-danger-bg);
+}

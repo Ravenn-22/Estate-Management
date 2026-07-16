@@ -1,0 +1,151 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  MANAGER
+  TENANT
+}
+
+enum UnitStatus {
+  VACANT
+  OCCUPIED
+  RESERVED
+  MAINTENANCE
+}
+
+enum LeaseStatus {
+  ACTIVE
+  ENDED
+}
+
+enum InvoiceStatus {
+  PENDING
+  PARTIAL
+  PAID
+  OVERDUE
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum RequestStatus {
+  SUBMITTED
+  ASSIGNED
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum DocumentType {
+  LEASE
+  RECEIPT
+  NOTICE
+  RULES
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role
+  phone     String?
+  createdAt DateTime @default(now())
+
+  leases       Lease[]
+  maintenance  MaintenanceRequest[]
+  documents    Document[]
+}
+
+model Unit {
+  id         String     @id @default(uuid())
+  label      String
+  status     UnitStatus @default(VACANT)
+  rentAmount Decimal
+    bedrooms   Int        @default(1)
+  bathrooms  Int        @default(1)
+
+
+  leases      Lease[]
+  maintenance MaintenanceRequest[]
+  documents   Document[]
+}
+
+model Lease {
+  id         String      @id @default(uuid())
+  tenant     User        @relation(fields: [tenantId], references: [id])
+  tenantId   String
+  unit       Unit        @relation(fields: [unitId], references: [id])
+  unitId     String
+  startDate  DateTime
+  endDate    DateTime
+  rentAmount Decimal
+  status     LeaseStatus @default(ACTIVE)
+
+  invoices Invoice[]
+}
+
+model Invoice {
+  id        String        @id @default(uuid())
+  lease     Lease         @relation(fields: [leaseId], references: [id])
+  leaseId   String
+  amount    Decimal
+  dueDate   DateTime
+  status    InvoiceStatus @default(PENDING)
+  createdAt DateTime      @default(now())
+
+  payments Payment[]
+}
+
+model Payment {
+  id         String   @id @default(uuid())
+  invoice    Invoice  @relation(fields: [invoiceId], references: [id])
+  invoiceId  String
+  amount     Decimal
+  method     String
+  paystackRef String?
+  proofUrl   String?
+  paidAt     DateTime @default(now())
+}
+
+model MaintenanceRequest {
+  id            String        @id @default(uuid())
+  tenant        User          @relation(fields: [tenantId], references: [id])
+  tenantId      String
+  unit          Unit          @relation(fields: [unitId], references: [id])
+  unitId        String
+  category      String
+  description   String
+  photoUrls     String[]
+  priority      Priority      @default(MEDIUM)
+  status        RequestStatus @default(SUBMITTED)
+  preferredTime DateTime?
+  createdAt     DateTime      @default(now())
+}
+
+model Document {
+  id         String       @id @default(uuid())
+  unit       Unit?        @relation(fields: [unitId], references: [id])
+  unitId     String?
+  tenant     User?        @relation(fields: [tenantId], references: [id])
+  tenantId   String?
+  type       DocumentType
+  fileUrl    String
+  uploadedAt DateTime     @default(now())
+}
+
+model Announcement {
+  id        String   @id @default(uuid())
+  title     String
+  body      String
+  category  String
+  createdAt DateTime @default(now())
+}

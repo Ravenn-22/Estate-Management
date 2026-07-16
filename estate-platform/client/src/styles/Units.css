@@ -1,0 +1,134 @@
+.units-page {
+  max-width: 1000px;
+}
+
+.units-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.primary-btn {
+  background: #111;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.units-error {
+  background: #fee;
+  color: #c00;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.unit-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.unit-form input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.unit-form button {
+  background: #111;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.units-empty {
+  color: #666;
+  font-size: 14px;
+}
+
+.units-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.unit-card {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.unit-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.unit-card-header h3 {
+  font-size: 15px;
+  margin: 0;
+}
+
+.status-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.status-vacant {
+  background: #e6f4ea;
+  color: #1e7e34;
+}
+
+.status-occupied {
+  background: #eaf1fb;
+  color: #1a56b0;
+}
+
+.status-reserved {
+  background: #fff4e5;
+  color: #b06a00;
+}
+
+.status-maintenance {
+  background: #fdeaea;
+  color: #c0392b;
+}
+
+.unit-rent {
+  font-size: 14px;
+  color: #333;
+  margin: 4px 0;
+}
+
+.unit-tenant {
+  font-size: 13px;
+  color: #666;
+  margin: 4px 0 12px;
+}
+
+.status-select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-top: 8px;
+}

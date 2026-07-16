@@ -1,0 +1,83 @@
+.maintenance-page {
+  max-width: 800px;
+}
+
+.maintenance-page h1 {
+  margin-bottom: var(--space-md);
+}
+
+.maintenance-error {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  margin-bottom: var(--space-md);
+}
+
+.maintenance-empty {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.maintenance-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.maintenance-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.maintenance-card-info p {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+.maintenance-priority {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.maintenance-photos {
+  display: flex;
+  gap: var(--space-xs);
+  margin: var(--space-sm) 0;
+  flex-wrap: wrap;
+}
+
+.maintenance-photos img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.maintenance-status-select {
+  width: 100%;
+  max-width: 220px;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-family: var(--font-body);
+  margin-top: var(--space-xs);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+  .maintenance-status-select {
+    max-width: 100%;
+  }
+
+  .maintenance-photos img {
+    width: 64px;
+    height: 64px;
+  }
+}
